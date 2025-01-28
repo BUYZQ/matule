@@ -51,7 +51,7 @@ class _OnboardsRootScreenState extends State<OnboardsRootScreen> {
                     ...List.generate(onboardScreens.length, (index) {
                       return AnimatedContainer(
                         margin: EdgeInsets.all(6),
-                        width: _currentIndex == index ? 50 : 40,
+                        width: _currentIndex == index ? 48 : 38,
                         height: 6,
                         duration: Duration(milliseconds: 300),
                         decoration: BoxDecoration(
@@ -78,10 +78,14 @@ class _OnboardsRootScreenState extends State<OnboardsRootScreen> {
                       background: Theme.of(context).colorScheme.surface,
                       foreground: Theme.of(context).colorScheme.onSurface,
                       onPressed: () {
-                        _pageController.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.ease,
-                        );
+                        if(_currentIndex < 2) {
+                          _pageController.nextPage(
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.ease,
+                          );
+                        } else {
+                          Navigator.of(context).pushNamed('/login');
+                        }
                       },
                     ),
                   ),

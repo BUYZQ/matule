@@ -34,6 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  email_validator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +61,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - images/welcome/
+     - images/auth/
+     - images/bottom_nav_bar/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -80,10 +83,17 @@ flutter:
            weight: 900
          - asset: fonts/raleway/Raleway-Bold.ttf
            weight: 700
+         - asset: fonts/raleway/Raleway-SemiBold.ttf
+           weight: 600
+         - asset: fonts/raleway/Raleway-Medium.ttf
+           weight: 500
          - asset: fonts/raleway/Raleway-Light.ttf
            weight: 300
+
      - family: Poppins
        fonts:
+         - asset: fonts/poppins/Poppins-Medium.ttf
+           weight: 500
          - asset: fonts/poppins/Poppins-Regular.ttf
            weight: 300
 

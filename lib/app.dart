@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matule_app/features/welcome/views/onboard_three_screen.dart';
-import 'package:matule_app/features/welcome/views/onboard_two_screen.dart';
-import 'package:matule_app/features/welcome/views/onboards_root_screen.dart';
-import 'package:matule_app/features/welcome/views/wear_me_screen.dart';
+import 'package:matule_app/routes/routes.dart';
 
 class MatuleApp extends StatelessWidget {
   const MatuleApp({super.key});
@@ -21,7 +18,7 @@ class MatuleApp extends StatelessWidget {
           surfaceBright: Color(0xffD8D8D8),
         ),
       ),
-      home: WearMeScreen(),
+      routes: routes,
     );
   }
 }
