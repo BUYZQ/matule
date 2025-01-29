@@ -9,6 +9,7 @@ class MatuleApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.light(
+          onSurfaceVariant: Color(0xffF7F7F9),
           surface: Colors.white,
           onSurface: Colors.black,
           primary: Color(0xff48B2E7),

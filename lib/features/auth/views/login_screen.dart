@@ -1,8 +1,8 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:matule_app/widgets/my_back_button.dart';
 import 'package:matule_app/widgets/my_elevated_button.dart';
 import 'package:matule_app/widgets/my_text_field.dart';
+import 'package:matule_app/utils/validators.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,22 +12,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-  String? _validateEmail(String? value) {
-    if(value == null || value.isEmpty) {
-      return 'Поле не может быть пустым';
-    } else if(!EmailValidator.validate(value)) {
-      return 'Введите корректный Email';
-    }
-    return null;
-  }
-
-  String? _validatePassword(String? value) {
-    if(value == null || value.isEmpty) {
-      return 'Поле не может быть пустым';
-    }
-    return null;
-  }
 
   final _formKey = GlobalKey<FormState>();
 
@@ -86,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   MyTextField(
                     hint: 'xyz@gmail.com',
-                    validator: _validateEmail,
+                    validator: emailValidate,
                   ),
                   SizedBox(height: 20),
                   Row(
@@ -104,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   MyTextField(
                     hint: 'qwerty1234',
                     isPassword: true,
-                    validator: _validatePassword,
+                    validator: passwordValidate,
                   ),
                   SizedBox(height: 10),
                   Row(

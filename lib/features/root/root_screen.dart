@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matule_app/features/home/views/home_screen.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -12,10 +13,7 @@ class _RootScreenState extends State<RootScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _rootScreens = [
-    Scaffold(
-      backgroundColor: Colors.green,
-      appBar: AppBar(title: Text('first screen'),),
-    ),
+    HomeScreen(),
     Scaffold(
       backgroundColor: Colors.red,
       appBar: AppBar(title: Text('second screen'),),
@@ -33,10 +31,25 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 40),
+        child: Transform.scale(
+          scale: 1.1,
+          child: FloatingActionButton(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Image.asset('images/bottom_nav_bar/bag.png'),
+            onPressed: () {},
+          ),
+        ),
+      ),
       backgroundColor: Colors.grey,
       body: Stack(
         children: [
           _rootScreens[_currentIndex],
+          // bottom nav bar
           Positioned(
             left: 0,
             right: 0,

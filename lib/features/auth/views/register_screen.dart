@@ -1,5 +1,5 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:matule_app/utils/validators.dart';
 import 'package:matule_app/widgets/my_back_button.dart';
 import 'package:matule_app/widgets/my_elevated_button.dart';
 import 'package:matule_app/widgets/my_text_field.dart';
@@ -12,30 +12,8 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
   final _formKey = GlobalKey<FormState>();
-
-  String? _emailValidate(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Поле не может быть пустым';
-    } else if (!EmailValidator.validate(value)) {
-      return 'Введите корректный Email';
-    }
-    return null;
-  }
-
-  String? _passwordValidate(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Поле не может быть пустым';
-    }
-    return null;
-  }
-
-  String? _nameValidate(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Поле не может быть пустым';
-    }
-    return null;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   MyTextField(
                     hint: 'xxxxxxxx',
-                    validator: _nameValidate,
+                    validator: nameValidate,
                   ),
                   SizedBox(height: 20),
                   Row(
@@ -108,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   MyTextField(
                     hint: 'xyz@gmail.com',
-                    validator: _emailValidate,
+                    validator: emailValidate,
                   ),
                   SizedBox(height: 20),
                   Row(
@@ -126,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   MyTextField(
                     hint: 'qwerty1234',
                     isPassword: true,
-                    validator: _passwordValidate,
+                    validator: passwordValidate,
                   ),
                   SizedBox(height: 10),
                   Row(
