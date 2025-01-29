@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:matule_app/features/cart/view/cart_screen.dart';
+import 'package:matule_app/features/home/views/favorite_screen.dart';
 import 'package:matule_app/features/home/views/home_screen.dart';
 
 class RootScreen extends StatefulWidget {
@@ -14,23 +16,16 @@ class _RootScreenState extends State<RootScreen> {
 
   final List<Widget> _rootScreens = [
     HomeScreen(),
-    Scaffold(
-      backgroundColor: Colors.red,
-      appBar: AppBar(title: Text('second screen'),),
-    ),
-    Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(title: Text('three screen'),),
-    ),
-    Scaffold(
-      backgroundColor: Colors.yellow,
-      appBar: AppBar(title: Text('four screen'),),
-    )
+    FavoriteScreen(),
+    Container(),
+    Container(),
+    CartScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 40),
@@ -41,15 +36,21 @@ class _RootScreenState extends State<RootScreen> {
               borderRadius: BorderRadius.circular(30),
             ),
             child: Image.asset('images/bottom_nav_bar/bag.png'),
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                _currentIndex = 4;
+              });
+            },
           ),
         ),
       ),
-      backgroundColor: Colors.grey,
+      backgroundColor: Theme.of(context).colorScheme.onSurfaceVariant,
       body: Stack(
         children: [
-          _rootScreens[_currentIndex],
-          // bottom nav bar
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: _rootScreens[_currentIndex],
+          ),
           Positioned(
             left: 0,
             right: 0,
